@@ -36,7 +36,7 @@ app.post('/login', async (req,res) => {
     })
 
     if(!userMyDB) {
-        return res.status(400).json({message: 'USUÁRIO NÃO ENCONTRADO'})
+        return res.status(404).json({message: 'USUÁRIO NÃO ENCONTRADO'})
     }
 
     const passwordMatch = await bcrypt.compare(userInfo.password, userMyDB.password)
